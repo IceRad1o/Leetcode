@@ -3,14 +3,20 @@
 #include "002.AddTwoNumbers.h"
 #include "004-MedianofTwoSortedArrays.h"
 #include "008-atoi.h"
+#include "034-FindFirstAndLastPositionOfElementInSortedArray.h"
 #include "039-CombinationSum.h"
 #include "040-CombinationSum2.h"
 #include "054-SpiralMatrix.h"
 #include "072-EditDistance.h"
 #include "082-RemoveDuplicatesFromSortedList2.h"
 #include "086-PartitionList.h"
+#include "113-PathSum2.h"
 #include "125-ValidPalindrome.h"
+#include "155-MinStack.h"
+#include "200-NumberOfIslands.h"
 #include "206-ReverseLinkedList.h"
+#include "322-CoinChange.h"
+#include "925-LongPressedName.h"
 
 using namespace std;
 
@@ -61,7 +67,12 @@ void test206() {
 	}
 }
 
-int main()
-{
-	test54();
+
+
+int main(){
+	//test34();
+	int a = 1;
+	int b = -a;
+	cout << b << endl;
+	return 0;
 }
