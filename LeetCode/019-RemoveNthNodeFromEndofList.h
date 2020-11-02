@@ -2,6 +2,7 @@
 
 class Solution19 {
 public:
+    // 1. two pointer
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode dummy(-1, head);
         ListNode* p = &dummy, * q = &dummy;
@@ -16,4 +17,6 @@ public:
         delete tmp;
         return dummy.next;
     }
+
+    // 2. stack<ListNode*>
 };

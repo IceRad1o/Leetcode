@@ -2,6 +2,7 @@
 #include <string>
 #include "002.AddTwoNumbers.h"
 #include "004-MedianofTwoSortedArrays.h"
+#include "006-ZigzagConversion.h"
 #include "008-atoi.h"
 #include "034-FindFirstAndLastPositionOfElementInSortedArray.h"
 #include "039-CombinationSum.h"
@@ -14,8 +15,10 @@
 #include "125-ValidPalindrome.h"
 #include "155-MinStack.h"
 #include "200-NumberOfIslands.h"
+#include "215-KthLargestElementinanArray.h"
 #include "206-ReverseLinkedList.h"
 #include "322-CoinChange.h"
+#include "349-IntersectionOfTwoArrays.h"
 #include "925-LongPressedName.h"
 
 using namespace std;
@@ -70,9 +73,7 @@ void test206() {
 
 
 int main(){
-	//test34();
-	int a = 1;
-	int b = -a;
-	cout << b << endl;
+	test349();
 	return 0;
+	
 }

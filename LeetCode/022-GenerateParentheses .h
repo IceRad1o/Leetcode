@@ -3,6 +3,7 @@
 using std::vector;
 using std::string;
 class Solution22 {
+    // 1.回溯算法
     void backtrack(vector<string>& ans, string& cur, int open, int close, int n) {
         if (cur.size() == n * 2) {
             ans.push_back(cur);
@@ -19,6 +20,9 @@ class Solution22 {
             cur.pop_back();
         }
     }
+
+    // 2.TODO:区间dp
+
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> result;

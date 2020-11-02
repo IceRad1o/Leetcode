@@ -54,5 +54,5 @@ void test34()
     vector<int> nums{ 5,7,7,8,8,10 };
     int target = 8;
     Solution34 s34;
-    s34.searchRange(nums,target);
+    s34.searchRange(nums, target);
 }

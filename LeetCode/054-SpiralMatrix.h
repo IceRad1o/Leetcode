@@ -46,5 +46,5 @@ void test54()
         std::cout << std::endl;
     }
     Solution54 s54;
-    s54.spiralOrder(vec);
+    s54.spiralOrder( vec);
 }
