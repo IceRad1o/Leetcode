@@ -1,3 +1,4 @@
+
 #include<vector>
 using std::vector;
 
@@ -14,7 +15,6 @@ public:
             while (lo < hi) {
                 if (nums[lo] + nums[hi] < target) {
                     lo++;
-                    while (lo < hi && nums[lo] == nums[lo - 1]) { lo++; }
                 }
                 else if (nums[lo] + nums[hi] > target) {
                     hi--;

@@ -1,13 +1,20 @@
-// 1.使用vector存储节点，双指针遍历 2.找到中间节点后 把后面的链表反转再和前面的链表merge
+// 1.使用vector存储节点，双指针遍历 2.找到中间节点后 把后面的链表反转再和前面的链表merge 3.递归
+#include "utility.h"
 
 class Solution {
 public:
+    // method1
+
+    // method3
+
+    // method2
     void reorderList(ListNode* head) {
+        if (head == nullptr) return;
         ListNode* fast = head;
         ListNode* slow = head;
         while (fast->next && fast->next->next) {
             slow = slow->next;
-            fast = fast->next;
+            fast = fast->next->next;
         }
         // slow就是中左节点
         ListNode* l1 = head;

@@ -1,14 +1,20 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "002.AddTwoNumbers.h"
 #include "004-MedianofTwoSortedArrays.h"
 #include "006-ZigzagConversion.h"
 #include "008-atoi.h"
+#include "010-RegularExpressionMatching.h"
+#include "015-3Sum.h"
+#include "032-LongestValidParentheses.h"
 #include "034-FindFirstAndLastPositionOfElementInSortedArray.h"
 #include "039-CombinationSum.h"
 #include "040-CombinationSum2.h"
 #include "054-SpiralMatrix.h"
+#include "059-SpiralMatrix2.h"
 #include "072-EditDistance.h"
+#include "074-SearchA2DMatrix.h"
 #include "082-RemoveDuplicatesFromSortedList2.h"
 #include "086-PartitionList.h"
 #include "113-PathSum2.h"
@@ -17,9 +23,13 @@
 #include "200-NumberOfIslands.h"
 #include "215-KthLargestElementinanArray.h"
 #include "206-ReverseLinkedList.h"
+#include "224-BasicCalculator.h"
+#include "227-BasicCalculator2.h"
 #include "322-CoinChange.h"
+#include "327-CountOfRangeSum.h"
 #include "349-IntersectionOfTwoArrays.h"
 #include "925-LongPressedName.h"
+#include "941-ValidMountainArray.h"
 
 using namespace std;
 
@@ -69,11 +79,33 @@ void test206() {
 		testlist = testlist->next;
 	}
 }
-
-
+template<class T>
+class sp
+{
+public:
+	sp(T *data) {
+		_data = data;
+		*count++;
+	}
+private:
+	T* _data;
+	int* _count;
+};
 
 int main(){
-	test349();
-	return 0;
-	
+	//char c = '-';
+	//cout << (int)c << endl;
+	//cout << (int)'0' << endl;
+	//test327();
+	vector<string> test;
+	string path = "/a/./b/../../c/";
+	stringstream ss(path);
+	string tmp;
+	while (getline(ss, tmp, '/')) {
+		test.push_back(tmp);
+	}
+	for (auto s : test) {
+		cout << s << endl;
+	}
+	test59();
 }

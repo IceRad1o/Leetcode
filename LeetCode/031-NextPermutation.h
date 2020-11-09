@@ -1,4 +1,5 @@
 #include<vector>
+#include<algorithm>
 using std::vector;
 
 class Solution31 {
@@ -10,14 +11,15 @@ public:
         }
         if (i >= 0) {
             int j = nums.size() - 1;
-            while (j >= 0 && nums[j] <= nums[i]) {
+            while (j >i && nums[j] <= nums[i]) {
                 j--;
             }
-            swap(nums, i, j);
+            std::swap(nums[i],nums[j]);
         }
-        reverse(nums, i + 1);
+        std::reverse(nums.begin()+i+1, nums.end());
     }
 private:
+    /*
     void reverse(vector<int>& nums, int start) {
         int i = start, j = nums.size() - 1;
         while (i < j) {
@@ -31,5 +33,7 @@ private:
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
-    }
+    }        
+    */
+
 };
