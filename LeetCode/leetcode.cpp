@@ -13,12 +13,15 @@
 #include "040-CombinationSum2.h"
 #include "054-SpiralMatrix.h"
 #include "059-SpiralMatrix2.h"
+#include "067.AddBinary.h"
 #include "072-EditDistance.h"
 #include "074-SearchA2DMatrix.h"
 #include "082-RemoveDuplicatesFromSortedList2.h"
 #include "086-PartitionList.h"
 #include "113-PathSum2.h"
 #include "125-ValidPalindrome.h"
+#include "134-GasStation.h"
+#include "148-SortList.h"
 #include "155-MinStack.h"
 #include "200-NumberOfIslands.h"
 #include "215-KthLargestElementinanArray.h"
@@ -28,6 +31,7 @@
 #include "322-CoinChange.h"
 #include "327-CountOfRangeSum.h"
 #include "349-IntersectionOfTwoArrays.h"
+#include "402-RemoveKDigits.h"
 #include "925-LongPressedName.h"
 #include "941-ValidMountainArray.h"
 
@@ -79,18 +83,6 @@ void test206() {
 		testlist = testlist->next;
 	}
 }
-template<class T>
-class sp
-{
-public:
-	sp(T *data) {
-		_data = data;
-		*count++;
-	}
-private:
-	T* _data;
-	int* _count;
-};
 
 int main(){
 	//char c = '-';
@@ -107,5 +99,5 @@ int main(){
 	for (auto s : test) {
 		cout << s << endl;
 	}
-	test59();
+	test134();
 }

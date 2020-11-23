@@ -1,6 +1,7 @@
 #include<vector>
 #include<algorithm>
 using std::vector;
+// 从后向前找就ok
 
 class Solution31 {
 public:

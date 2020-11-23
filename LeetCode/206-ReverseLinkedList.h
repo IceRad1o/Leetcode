@@ -12,16 +12,18 @@ public:
     cur就是1，是原来的头部节点， prev就是创建的dummy节点
     */
     ListNode* reverseList_recur_prev(ListNode* head) {
-        ListNode* pre = new ListNode(0), * cur = head;
-        pre->next = head;
-        while (cur && cur->next) {
-            ListNode* temp = cur->next;
-            cur->next = temp->next;
-           // temp->next = pre->next;  //是pre->next不是cur->next
-            temp->next = cur;
-            pre->next = temp; 
+        if (head == nullptr) return nullptr;
+        ListNode dummy(0);
+        ListNode* prev = &dummy;
+        prev->next = head;
+        ListNode* cur = head;
+        while (cur->next) {
+            ListNode* tmp = cur->next;
+            cur->next = tmp->next;
+            tmp->next = prev->next;
+            prev->next = tmp;
         }
-        return pre->next;
+        return dummy.next;
     }
 
     // 相对于头插法来说，少用一个指针

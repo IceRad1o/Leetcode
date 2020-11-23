@@ -2,6 +2,20 @@
 
 class Solution83 {
 public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == nullptr) return nullptr;
+        ListNode* prev = head, * cur = head->next;
+        while (cur) {
+            if (prev->val == cur->val) {
+                prev->next = cur->next;
+            }
+            else {
+                prev = cur;
+            }
+            cur = prev->next;
+        }
+        return head;
+    }
 
     ListNode* deleteDuplicates_cur(ListNode* head) {
         if (!head) return head;
