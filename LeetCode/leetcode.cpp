@@ -3,6 +3,7 @@
 #include <sstream>
 #include "002.AddTwoNumbers.h"
 #include "004-MedianofTwoSortedArrays.h"
+#include "005-LongestPalindromicSubstring.h"
 #include "006-ZigzagConversion.h"
 #include "008-atoi.h"
 #include "010-RegularExpressionMatching.h"
@@ -19,6 +20,7 @@
 #include "082-RemoveDuplicatesFromSortedList2.h"
 #include "086-PartitionList.h"
 #include "113-PathSum2.h"
+#include "114-FlatenBinaryTreeToLinkedList.h"
 #include "125-ValidPalindrome.h"
 #include "134-GasStation.h"
 #include "148-SortList.h"
@@ -84,6 +86,33 @@ void test206() {
 	}
 }
 
+int trap(vector<int>& height) {
+	int res = 0;
+	int maxLeft = 0;
+	int maxRight = 0;
+	stack<int> stk;
+	for (int i = 1; i < height.size() - 1; i++) {
+		int j = i - 1;
+		while (j >= 0) {
+			maxLeft = max(maxLeft, height[j]);
+			j--;
+		}
+		int k = i + 1;
+		while (k < height.size()) {
+			maxRight = max(maxRight, height[k]);
+			k++;
+		}
+		if (maxLeft <= height[i] || maxRight <= height[i]) {
+			res += 0;
+			continue;
+		}
+		res += min(maxLeft, maxRight) - height[i];
+	}
+	return res;
+}
+
+vector<int> rain{ 0,1,0,2,1,0,1,3,2,1,2,1 };
+
 int main(){
 	//char c = '-';
 	//cout << (int)c << endl;
@@ -99,5 +128,5 @@ int main(){
 	for (auto s : test) {
 		cout << s << endl;
 	}
-	test134();
+	trap(rain);
 }

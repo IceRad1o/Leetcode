@@ -20,21 +20,26 @@ public:
         std::reverse(nums.begin()+i+1, nums.end());
     }
 private:
-    /*
-    void reverse(vector<int>& nums, int start) {
-        int i = start, j = nums.size() - 1;
-        while (i < j) {
-            swap(nums, i, j);
-            i++;
-            j--;
+    // my implementation, not elegant enough
+    void nextPermutation(vector<int>& nums) {
+        int n = nums.size();
+        int i = 0, j = 0;
+        for (i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                break;
+            }
         }
+        if (i == -1) {
+            reverse(nums.begin(), nums.end());
+            return;
+        }
+        for (j = i + 1; j < n; j++) {
+            if (nums[j] <= nums[i]) {
+                break;
+            }
+        }
+        swap(nums[i], nums[j - 1]);
+        reverse(nums.begin() + i + 1, nums.end());
     }
-
-    void swap(vector<int>& nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }        
-    */
 
 };

@@ -12,15 +12,6 @@ public:
 
     }
 
-    // dfs单独写一个函数 在主函数中调用 dfs(root,sum);
-    bool dfs(TreeNode* root, int sum) {
-        if (root == nullptr) return false;
-        if (root->left == nullptr && root->right == nullptr) {
-            return root->val == sum;
-        }
-        return dfs(root->left, sum - root->val) || dfs(root->right, sum - root->val);
-    }
-
     // bfs
     bool hasPathSum(TreeNode* root, int sum) {
         if (root == nullptr) {

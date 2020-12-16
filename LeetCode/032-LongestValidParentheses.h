@@ -1,12 +1,15 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <stack>
 using std::vector;
 using std::string;
+using std::stack;
 
 class Solution32 {
 public:
-    int longestValidParentheses(string s) {
+    // dp method
+    int longestValidParentheses_dp(string s) {
         int res = 0;
         vector<int> dp(s.size(), 0);
         for (int i = 1; i < s.size(); i++) {
@@ -22,6 +25,32 @@ public:
             res = std::max(res, dp[i]);
         }
         return res;
+    }
+
+    // stack method
+    int longestValidParentheses(string s) {
+        int maxLen = 0, last = -1;
+        stack<int> lefts;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '(') {
+                lefts.push(i);
+            }
+            else {
+                if (lefts.empty()) {
+                    last = i;
+                }
+                else {
+                    lefts.pop();
+                    if (lefts.empty()) {
+                        maxLen = std::max(maxLen, i - last);
+                    }
+                    else {
+                        maxLen = std::max(maxLen, i - lefts.top());
+                    }
+                }
+            }
+        }
+        return maxLen;
     }
 };
 

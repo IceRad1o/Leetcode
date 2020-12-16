@@ -26,23 +26,21 @@ public:
 
     // 3. 单调栈 比起124，单调栈可以理解为横向计算的过程
     int trap_stack(vector<int>& height) {
+        int res = 0;
         stack<int> stk;
-        int cur = 0;
-        int water = 0;
-        while (cur < height.size())
-        {
-            while (!stk.empty() && height[cur] > height[stk.top()]) {
+        for (int i = 0; i < height.size(); i++) {
+            while (!stk.empty() && height[i] > height[stk.top()]) {
                 int t = stk.top();
                 stk.pop();
                 if (stk.empty()) {
                     break;
                 }
-                int bound_height = min(height[cur], height[stk.top()]) - height[t];
-                water += bound_height * (cur - stk.top() - 1);
+                int boundHeight = min(height[stk.top()], height[i]) - height[t];
+                res += boundHeight * (i - stk.top() - 1);
             }
-            stk.push(cur++);
+            stk.push(i);
         }
-        return water;
+        return res;
     }
 
     // 2. 解决了1每次遍历最大高度的问题 O(n) 空间复杂度也是O(n)

@@ -23,13 +23,13 @@ public:
             int half = k / 2;
             int newindex1 = min(index1 + half, len1) - 1;
             int newindex2 = min(index2 + half, len2) - 1;
-            if (nums1[newindex1] >= nums2[newindex2]) {
-                k -= (newindex2 - index2 + 1);
-                index2 = newindex2 + 1;
-            }
-            else if (nums1[newindex1] < nums2[newindex2]) {
+            if (nums1[newindex1] < nums2[newindex2]) {
                 k -= (newindex1 - index1 + 1);
                 index1 = newindex1 + 1;
+            }
+            else {
+                k -= (newindex2 - index2 + 1);
+                index2 = newindex2 + 1;
             }
             // else return nums1[]
         }
@@ -85,10 +85,10 @@ public:
 };
 
 void test4(){
-    vector<int> t1 = { };
-    vector<int> t2 = { 1 };
+    vector<int> t1 = { 0,0,0,0,0 };
+    vector<int> t2 = { -1,0,0,0,0,0,1 };
     Solution4 solution;
-    double c = solution.findMedianSortedArrays_merge(t1, t2);
+    double c = solution.findMedianSortedArrays(t1, t2);
     std::cout << c;
    
 }

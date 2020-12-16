@@ -7,10 +7,10 @@ class Solution5 {
 public:
     string longestPalindrome(string s) {
         const int n = s.size();
-        int dp[l][l];
-        std::fill_n(&dp[0][0], l * l, 0);
+       // int f[n][n];
+      //  std::fill_n(&f[0][0], n*n, 0);
        // vector会超时
-       //  vector<vector<bool>> f(n, vector<bool>(n, false));  
+        vector<vector<bool>> f(n, vector<bool>(n, false));  
         int maxlen = 1, start = 0;       // 注意这里maxlen=1不能设置为0，在s只有一个字符的时候直接返回
         for (int i = 0; i < n; i++) {    // [j,i]
             f[i][i] = true;

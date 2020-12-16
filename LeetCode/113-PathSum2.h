@@ -12,21 +12,7 @@ public:
         dfs(root, sum, path, res);
         return res;
     }
-    /* 这里是自己写的代码，结构比较糟糕，下面的官方解答更清晰
-    void dfs(TreeNode* root, int sum, vector<int>& path, vector<vector<int>>& res) {
-        if (root == nullptr) return;
-        if (root->left == nullptr && root->right == nullptr && sum == root->val) {
-            path.push_back(root->val);
-            res.push_back(path);
-            path.pop_back();
-            return;
-        }
-        path.push_back(root->val);
-        dfs(root->left, sum - root->val, path, res);
-        dfs(root->right, sum - root->val, path, res);
-        path.pop_back();
-    }
-    */
+ 
     void dfs(TreeNode* root, int sum, vector<int>& path, vector<vector<int>>& res) {
         if (root == nullptr) return;
         path.push_back(root->val);

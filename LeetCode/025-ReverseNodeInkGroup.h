@@ -14,8 +14,7 @@ public:
         ListNode* cur = head;
         prev->next = head;
         while (len >= k) {
-            int step = k;
-            while (--step) {
+            for(int i=0; i<k-1; i++){
                 ListNode* tmp = cur->next;
                 cur->next = tmp->next;
                 tmp->next = prev->next;
