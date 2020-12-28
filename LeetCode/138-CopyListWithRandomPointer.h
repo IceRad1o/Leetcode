@@ -32,31 +32,8 @@ public:
         prev->next = nullptr;
         return res;
     }
-    // Method1 : use hashmap and traverse the list 2 times
-    Node* copyRandomList(Node* head) {
-        unordered_map<Node*, Node*> umap;
-        Node res(-1), * prev = &res;
-        prev->next = head;
 
-        Node* first = head;
-        while (first) {
-            prev->next = new Node(first->val);
-            umap[first] = prev->next;
-            first = first->next;
-            prev = prev->next;
-        }
-        Node* second = head;
-        Node* prev2 = &res;
-        while (second) {
-            prev2->next->random = umap[second->random];
-            second = second->next;
-            prev2 = prev2->next;
-
-        }
-        return res.next;
-    }
-
-    // A more elegant implementation of method1
+    // method1
     Node* copyRandomList(Node* head) {
         if (head == nullptr) return nullptr;
         Node* cur = head;

@@ -16,6 +16,7 @@
 #include "059-SpiralMatrix2.h"
 #include "067.AddBinary.h"
 #include "072-EditDistance.h"
+#include "076-MinimumWindowSubstring.h"
 #include "074-SearchA2DMatrix.h"
 #include "082-RemoveDuplicatesFromSortedList2.h"
 #include "086-PartitionList.h"
@@ -36,6 +37,7 @@
 #include "402-RemoveKDigits.h"
 #include "925-LongPressedName.h"
 #include "941-ValidMountainArray.h"
+#include <xtree>
 
 using namespace std;
 
@@ -128,5 +130,9 @@ int main(){
 	for (auto s : test) {
 		cout << s << endl;
 	}
-	trap(rain);
+	//trap(rain);
+	string str = "abc";
+	reverse(str.begin() + 1, str.begin() + 2);
+	//str.erase(str.begin() + 1, str.begin()+3);
+	cout << str;
 }

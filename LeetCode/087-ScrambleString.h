@@ -3,6 +3,37 @@
 
 class Solution87 {
 public:
+	// dp
+	bool isScramble(string s1, string s2) {
+		if (s1.size() != s2.size()) return false;
+		int n = s1.size();
+		vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(n + 1, 0)));
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				dp[i][j][1] = s1[i] == s2[j];
+			}
+		}
+		// dp[i][j][len] = dp[i][j][k] && dp[i+k][j+k][len-k] 
+		//                 dp[i][j+len-k][k] && dp[i+k][j][len-k] 
+		for (int len = 2; len <= n; len++) {
+			for (int i = 0; i <= n - len; i++) {
+				for (int j = 0; j <= n - len; j++) {
+					for (int k = 1; k < len; k++) {
+						if (dp[i][j][k] && dp[i + k][j + k][len - k]) {
+							dp[i][j][len] = 1;
+							break;
+						}
+						if (dp[i][j + len - k][k] && dp[i + k][j][len - k]) {
+							dp[i][j][len] = 1;
+							break;
+						}
+					}
+				}
+			}
+		}
+		return dp[0][0][n];
+	}
+
 	bool isScramble(string s1, string s2) {
 		if (s1.size() != s2.size())
 			return false;
