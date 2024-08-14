@@ -1,5 +1,8 @@
 #include "utility.h"
 
+// fast->f; slow->s;  a->开头到环开头长度  b->环的长度
+// fast = 2s , fast = s + nb  =>  s = nb; 所以 slow的长度是n个环的长度。
+// 而a + nb正好就是环入口
 class Solution142 {
 public:
     ListNode* detectCycle(ListNode* head) {

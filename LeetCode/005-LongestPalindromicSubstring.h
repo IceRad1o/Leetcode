@@ -23,6 +23,35 @@ public:
             }
         }
         return s.substr(start, maxlen);
+    }
 
+    // 更通用的写法，直观上更好理解
+    string longestPalindrome02(string s) {
+        int len = s.size();
+        if(len < 2) {
+            return s;
+        }
+        int left =0,  max_len = 1;
+        vector<vector<int>> dp(len, vector(len, 0));
+        for(int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        // dp[i][j] 
+        for(int j = 1; j < len; j++) {
+            for(int i = 0; i < j; i++) {
+                if(j - i == 1) {
+                    dp[i][j] = s[i] == s[j] ? 1 : 0;
+                } else {
+                    dp[i][j] = (dp[i+1][j-1] == 1 && s[i] == s[j]) ? 1 : 0;
+                }
+                if(dp[i][j] == 1) {
+                    if(j - i + 1 > max_len) {
+                        max_len = j - i + 1;
+                        left = i;
+                    }
+                }
+            }
+        }
+        return s.substr(left, max_len);
     }
 };

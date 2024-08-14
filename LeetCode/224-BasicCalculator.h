@@ -1,10 +1,11 @@
 /*
-    ·½·¨Ò»ÊÇ À¨ºÅÆ¥Åä ¶ÔÓÚ '('ÈëÕ»£¬Ö±µ½Óöµ½ ')'. ÕâÀïµÄÎÊÌâÔÚÓÚ³öÕ»µÄÊ±ºòÊý×ÖÊÇÄæÐò£¬ËùÒÔ¿ÉÒÔµ¹¹ýÀ´¼ìË÷string
-             »¹ÓÐÒ»¸öÎÊÌâÔÚÓÚC++Ã»·¨ÏñJavaÒ»Ñù stack<Object>ÀïÃæÍ¬Ê±´æ·ÅintºÍchar£¬ËùÒÔÒªÓÃµ½Á½¸öÕ»¡£
-             ·½·¨Ò»Ïë·¨ºÜ¼òµ¥£¬µ«ÊÇ½ÏÄÑÊµÏÖ
-    ·½·¨¶þÊÇ Ë³ÐòÉ¨Ãè×Ö·û´® 
+    ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ '('ï¿½ï¿½Õ»ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ')'. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½Õ»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½string
+             ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C++Ã»ï¿½ï¿½ï¿½ï¿½JavaÒ»ï¿½ï¿½ stack<Object>ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½intï¿½ï¿½charï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½
+             ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ë·¨ï¿½Ü¼òµ¥£ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ë³ï¿½ï¿½É¨ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ 
  */
 #include <iostream>
+#include <cmath>
 #include <stack>
 #include <string>
 using std::stack;
@@ -33,12 +34,12 @@ public:
                     opers.pop(); // pop ')'
                 }
                 else {
-                    opers.push(c); // ²Ù×÷·û
+                    opers.push(c); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 }
             }
         }
         if (hasnum) nums.push(num);
-        // if (s[0] == '+' || s[0] == '-') nums.push(0); ÓÃÀ´´¦ÀíÍ·²¿·ûºÏ£¬ÕâÀï²âÊÔÓÃÀý¸øµÄÓ¦¸Ã¶¼ÊÇÕý³£µÄ
+        // if (s[0] == '+' || s[0] == '-') nums.push(0); ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         return eval();
     }
     int eval() {
@@ -53,13 +54,13 @@ public:
         return result;
     }
 
-    // ·½·¨2
+    // ï¿½ï¿½ï¿½ï¿½2
     int calculate_v2(string& s)
     {
         stack<int>st;
-        int temp = 0;//¼ÇÂ¼¶àÎ»Êý
-        int result = 0;//¼ÇÂ¼Ñ¹ÈëÕ»µÄÊý×Ö
-        int symbol = 1;//±êÖ¾Õý¸ºÊý
+        int temp = 0;//ï¿½ï¿½Â¼ï¿½ï¿½Î»ï¿½ï¿½
+        int result = 0;//ï¿½ï¿½Â¼Ñ¹ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        int symbol = 1;//ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         for (int i = 0; i < s.size(); i++)
         {
@@ -68,16 +69,16 @@ public:
             else if (s[i] == '+')
             {
                 result += symbol * temp;
-                symbol = 1;//ÖØÖÃ
-                temp = 0;//ÖØÖÃ
+                symbol = 1;//ï¿½ï¿½ï¿½ï¿½
+                temp = 0;//ï¿½ï¿½ï¿½ï¿½
             }
             else if (s[i] == '-')
             {
                 result += symbol * temp;
-                symbol = -1;//¸ºÊý
+                symbol = -1;//ï¿½ï¿½ï¿½ï¿½
                 temp = 0;
             }
-            else if (s[i] == '(')//½«Æù½ñÎªÖ¹¼ÆËãµÄ½á¹ûºÍ·ûºÅÌí¼Óµ½Õ»ÉÏ
+            else if (s[i] == '(')//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÖ¹ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Õ»ï¿½ï¿½
             {
                 st.push(result);
                 st.push(symbol);
@@ -86,13 +87,13 @@ public:
             }
             else if (s[i] == ')')
             {
-                result += symbol * temp;//¼ÆËãÀ¨ºÅÄÚµÄ½á¹û
-                result *= st.top(); st.pop();//»ñÈ¡ÈëÕ»Ç°µÄÕý¸ººÅ
-                result += st.top(); st.pop();//¼ÓÉÏÈëÕ»Ç°µÄ½á¹û
-                temp = 0;//ÖØÖÃ£¬ÒòÎª)Ö®Ç°ÊÇÊý×Ö£¬temp»¹ÊÇ²»±ä
+                result += symbol * temp;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ½ï¿½ï¿½
+                result *= st.top(); st.pop();//ï¿½ï¿½È¡ï¿½ï¿½Õ»Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                result += st.top(); st.pop();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»Ç°ï¿½Ä½ï¿½ï¿½
+                temp = 0;//ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Îª)Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½tempï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½
             }
         }
-        //Ñ­»·ÍË³öµÄÊ±ºò£¬¿Ï¶¨×îºóÒ»¸öÊÇÊý×Ö£¨ºÏ·¨±í´ïÊ½£©£¬Òª°Ñresult¼ÓÉÏ¸ÃÊý×Ö£¬¶øÇÒ±ðÍüÁËµ¹ÊýµÚ¶þÎ»µÄÕý¸ººÅ
+        //Ñ­ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Ê±ï¿½ò£¬¿Ï¶ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½resultï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ú¶ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         return result + (symbol * temp);
     }
 };

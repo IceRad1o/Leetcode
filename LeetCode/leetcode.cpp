@@ -37,7 +37,6 @@
 #include "402-RemoveKDigits.h"
 #include "925-LongPressedName.h"
 #include "941-ValidMountainArray.h"
-#include <xtree>
 
 using namespace std;
 
@@ -116,10 +115,9 @@ int trap(vector<int>& height) {
 vector<int> rain{ 0,1,0,2,1,0,1,3,2,1,2,1 };
 
 int main(){
-	//char c = '-';
-	//cout << (int)c << endl;
-	//cout << (int)'0' << endl;
-	//test327();
+
+	test39();
+    /*
 	vector<string> test;
 	string path = "/a/./b/../../c/";
 	stringstream ss(path);
@@ -134,5 +132,9 @@ int main(){
 	string str = "abc";
 	reverse(str.begin() + 1, str.begin() + 2);
 	//str.erase(str.begin() + 1, str.begin()+3);
-	cout << str;
+	cout << str << endl;
+
+    int a, b =-1;
+    std::cout << a << b << std::endl;
+     */
 }

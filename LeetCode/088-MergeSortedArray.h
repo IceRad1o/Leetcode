@@ -1,27 +1,21 @@
 class Solution88 {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int t = m + n - 1;
-        while (m && n) {
-            if (nums1[m - 1] < nums2[n - 1]) {
-                nums1[t--] = nums2[n - 1];
-                n--;
+       int p1 = m-1;
+        int p2 = n-1;
+        int index = m + n -1;
+        while(p1 >= 0 || p2 >= 0) {
+            if(p1 == -1) {
+                nums1[index--] = nums2[p2--];
+            }
+            else if (p2 == -1) {
+                nums1[index--] = nums1[p1--];
+            }
+            else if(nums1[p1] <= nums2[p2]) {
+                nums1[index--] = nums2[p2--];
             }
             else {
-                nums1[t--] = nums1[m - 1];
-                m--;
-            }
-        }
-        if (m == 0) {
-            while (n) {
-                nums1[t--] = nums2[n - 1];
-                n--;
-            }
-        }
-        else {
-            while (m) {
-                nums1[t--] = nums1[m - 1];
-                m--;
+                nums1[index--] = nums1[p1--];
             }
         }
         return;
